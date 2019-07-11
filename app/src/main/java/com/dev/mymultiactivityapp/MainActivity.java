@@ -1,5 +1,6 @@
 package com.dev.mymultiactivityapp;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,14 +26,25 @@ public class MainActivity extends AppCompatActivity {
         editText1 = (EditText) findViewById(R.id.editText1);
         textView1 = (TextView) findViewById(R.id.textView1);
 
-
-
     }
 
     public void onBtnPressed(View view){
         Intent intent = new Intent(this,NextActivity.class);
         intent.putExtra(Util.KEY,editText1.getText().toString());
-        startActivity(intent);
+        startActivityForResult(intent,Util.REQ_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,  Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Util.REQ_CODE){
+            if (resultCode == Util.RES_CODE){
+                Bundle bundle = data.getExtras();
+                if (bundle != null){
+                    textView1.setText(bundle.getString(Util.BACK_KEY));
+                }
+            }
+        }
 
     }
 }
