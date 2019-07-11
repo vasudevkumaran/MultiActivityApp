@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Multi Activity App</string>
+    <string name="enter_text">Enter a text here to send</string>
+    <string name="no_value">No value</string>
+    <string name="send">Send</string>
+    <string name="back">Back</string>
+    <string name="main_title">Main Activity</string>
+    <string name="next_title">Next Activity</string>
+</resources>
